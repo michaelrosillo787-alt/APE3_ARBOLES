@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm> // util para std::max
+#include <algorithm> 
 using namespace std;
 
 // Asumiendo la estructura Nodo del Ejercicio 2
@@ -11,9 +11,14 @@ struct Nodo {
 };
 
 int calcularAltura(Nodo* raiz) {
+    // si no hay nodo, no hay altura
     if (raiz == nullptr) return 0;
+    
+    // calculamos la altura de los dos lados
     int alturaIzq = calcularAltura(raiz->izquierdo);
     int alturaDer = calcularAltura(raiz->derecho);
+    
+    // nos quedamos con el lado mas largo y le sumamos 1 por el nodo actual
     return 1 + std::max(alturaIzq, alturaDer);
 }
 
