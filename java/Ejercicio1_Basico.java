@@ -19,8 +19,17 @@ class NodoN {
 
 public class Ejercicio1_Basico {
     public static int contarNodos(NodoN raiz) {
-        // TODO: Implementa tu lógica aquí. (Pista: usa recursividad)
-        return 0; 
+        // si el arbol esta vacio no hay nada que contar
+        if (raiz == null) return 0;
+        
+        // empezamos a contar desde 1 que es el nodo actual
+        int count = 1;
+        
+        // revisamos todos los hijos del nodo actual y vamos sumando
+        for (NodoN hijo : raiz.hijos) {
+            count += contarNodos(hijo);
+        }
+        return count; 
     }
 
     public static void main(String[] args) {
