@@ -9,14 +9,21 @@ struct Nodo {
 };
 
 Nodo* insertar(Nodo* raiz, int valor) {
+    // si llegamos a un lugar vacio, creamos el nuevo nodo ahi
     if (raiz == nullptr) {
         return new Nodo(valor);
     }
+    
+    // si el valor es menor, nos vamos por la rama izquierda
     if (valor < raiz->valor) {
         raiz->izquierdo = insertar(raiz->izquierdo, valor);
-    } else if (valor > raiz->valor) {
+    } 
+    // si es mayor, nos vamos por la rama derecha
+    else if (valor > raiz->valor) {
         raiz->derecho = insertar(raiz->derecho, valor);
     }
+    
+    // devolvemos la raiz modificada
     return raiz;
 }
 
