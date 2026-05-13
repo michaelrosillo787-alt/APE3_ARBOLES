@@ -9,10 +9,17 @@ struct Nodo {
 };
 
 Nodo* invertir(Nodo* raiz) {
+    // si esta vacio no hacemos nada
     if (raiz == nullptr) return nullptr;
+    
+    // guardamos el lado izquierdo para no perderlo
     Nodo* temp = raiz->izquierdo;
+    
+    // cambiamos el izquierdo por el derecho invertido
     raiz->izquierdo = invertir(raiz->derecho);
+    // y al derecho le ponemos el izquierdo que teniamos guardado
     raiz->derecho = invertir(temp);
+    
     return raiz;
 }
 
