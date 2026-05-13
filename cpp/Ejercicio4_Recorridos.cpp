@@ -10,9 +10,14 @@ struct Nodo {
 };
 
 void inOrderAux(Nodo* nodo, vector<int>& resultado) {
+    // si no hay nada, cortamos aca
     if (nodo == nullptr) return;
+    
+    // primero vamos todo a la izquierda
     inOrderAux(nodo->izquierdo, resultado);
+    // despues guardamos el valor actual
     resultado.push_back(nodo->valor);
+    // y al final vamos a la derecha
     inOrderAux(nodo->derecho, resultado);
 }
 
