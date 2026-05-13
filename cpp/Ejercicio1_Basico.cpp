@@ -9,8 +9,13 @@ struct NodoN {
 };
 
 int contarNodos(NodoN* raiz) {
+    // si el arbol esta vacio no hay nada que contar
     if (raiz == nullptr) return 0;
+    
+    // empezamos a contar desde 1 que es el nodo actual
     int count = 1;
+    
+    // revisamos todos los hijos del nodo actual y vamos sumando
     for (NodoN* hijo : raiz->hijos) {
         count += contarNodos(hijo);
     }
