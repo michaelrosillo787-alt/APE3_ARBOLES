@@ -1,7 +1,14 @@
 public class Ejercicio3_Binario2 {
     public static int calcularAltura(Nodo raiz) {
-        // TODO: Implementa tu lógica aquí
-        return 0;
+        // si no hay nodo, no hay altura
+        if (raiz == null) return 0;
+        
+        // calculamos la altura de los dos lados
+        int alturaIzq = calcularAltura(raiz.izquierdo);
+        int alturaDer = calcularAltura(raiz.derecho);
+        
+        // nos quedamos con el lado mas largo y le sumamos 1 por el nodo actual
+        return 1 + Math.max(alturaIzq, alturaDer);
     }
 
     public static void main(String[] args) {
